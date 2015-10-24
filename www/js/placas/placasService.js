@@ -5,7 +5,7 @@
         .module('app.placas')
         .factory('placasService', placasService);
 
-    placasService.$inject = ['$q','exception'];
+    placasService.$inject = ['$q', 'exception'];
 
     /* @ngInject */
     function placasService($q, exception) {
@@ -14,8 +14,13 @@
             idinspeccion: i,
             placa: 'abc111'
         }];
+        var arrayServicios = [{
+            "label": 'pesados',
+            value: 1
+        }];
         var service = {
             getPlacas: getPlacas,
+            getServicios: getServicios,
             addPlaca: addPlaca
         };
         return service;
@@ -26,11 +31,11 @@
 
             // return $q.when(arrayPlacas);
 
-            return reject(true)
-            .then(onGetPlacas)
-            .catch(exception.catcher('no se obtuvieron las placas del servidor'));
+            return reject(false)
+                .then(onGetPlacas)
+                .catch(exception.catcher('no se obtuvieron las placas del servidor'));
 
-            function onGetPlacas (placas) {
+            function onGetPlacas(placas) {
                 return placas;
             }
         }
@@ -50,6 +55,10 @@
             }
             return $q.when(arrayPlacas);
 
+        }
+
+        function getServicios() {
+            return $q.when(arrayServicios);
         }
     }
 })();

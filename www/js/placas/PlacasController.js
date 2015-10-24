@@ -21,6 +21,8 @@
         // 'firstInitService',
         // '$localStorage',
         // '$ionicLoading',
+        '$q',
+        'logger',
         '$filter' //,
         // 'intermediateService',
         // '$timeout'
@@ -43,6 +45,8 @@
         // firstInitService,
         // $localStorage,
         // $ionicLoading,
+        $q,
+        logger,
         $filter //,
         // intermediateService,
         // $timeout
@@ -52,6 +56,7 @@
         vm.title = 'Placas';
         vm.placas = [];
         vm.placa = null;
+        vm.servicios = [];
         vm.sl = null;
         vm.filter = '';
         vm.hasFocus = false;
@@ -65,7 +70,16 @@
         ////////////////
 
         function activate() {
-            getPlacas();
+            var promises = [
+                getPlacas(),
+                getServicios()
+            ];
+            $q.all(promises).then(onActivated);
+
+            function onActivated(res) {
+
+                logger.info('placas activado', res);
+            }
 
 
         }
@@ -89,6 +103,16 @@
                 vm.placas = placas;
                 return vm.placas;
             }
+        }
+
+        function getServicios() {
+            return placasService.getServicios().then(onGetServicios);
+
+            function onGetServicios(servicios) {
+                vm.servicios = servicios;
+                return vm.servicios;
+            }
+
         }
 
         function noFocus() {
