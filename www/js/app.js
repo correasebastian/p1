@@ -10,6 +10,9 @@
         'ionic', 'starter.controllers', 'angular-loading-bar',
         'ngCordova', 'LocalStorageModule',
 
+        //common
+        'blocks.exception','blocks.logger',
+
         //app modules
         'app.placas'
     ]);

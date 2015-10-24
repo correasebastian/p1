@@ -8,6 +8,8 @@
     "angular-loading-bar": "~0.8.0",
     "moment": "~2.10.6",
     "ngCordova": "~0.1.20-alpha",
-    "angular-local-storage": "~0.2.3"
+    "angular-local-storage": "~0.2.3",
+    "toastr": "~2.1.2",
+    "font-awesome": "~4.4.0"
   }
 }

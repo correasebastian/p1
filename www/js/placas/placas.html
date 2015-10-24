@@ -1,7 +1,7 @@
 <ion-view view-title="placas" cache-view="false" hide-back-button="true" hide-nav-bar="false">
     <div class="float-button fbAdd">
         <span class="height-fix">
-      <a on-touch="placaPopup()"  class="button content button-icon ">
+      <a on-touch="vm.placaPopup()"  class="button content button-icon ">
       <!-- ui-sref="add-trip" -->
         <i class="ion-plus-round my-icon"> </i>
       </a>
@@ -10,34 +10,46 @@
     <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
-    </ion-nav-buttons>
-    <ion-nav-buttons side="right">
-        <button ng-click="setFocus()" ng-hide="hasFocus" class="button button-positive button-clear button-icon icon ion-search animated">
+        <button ng-click="vm.setFocus()" ng-hide="vm.hasFocus" class="button button-positive button-clear button-icon icon ion-search animated">
         </button>
-        <span ng-show="hasFocus" class="animated">
+        <span ng-show="vm.hasFocus" class="animated">
             <label class="item-input-wrapper animated">
               <i class="icon ion-search placeholder-icon"></i>
-              <input id="searchPrimary" ng-blur="noFocus()" type="search" placeholder="Search" ng-model="obj.filter">
+              <input id="searchPrimary" ng-blur="vm.noFocus()" type="search" placeholder="Search" ng-model="vm.filter">
             </label>
-            <button ng-click="noFocus()" class="button button-clear animated">
+            <button ng-click="vm.noFocus()" class="button button-clear animated">
               Cancel
             </button>
           </span>
-        <button ng-click="setOfflineMode(false)" ng-hide="!off.offlineMode || hasFocus " class="button button-positive button-clear button-icon icon ion-toggle animated">
-            <!-- {{off.offlineMode}} -->Offline
-        </button>
-        <button ng-click="setOfflineMode(true)" ng-hide="off.offlineMode || hasFocus " class="button button-positive button-clear button-icon icon ion-toggle-filled animated">
-            <!-- {{off.offlineMode}} -->Online
-        </button>
     </ion-nav-buttons>
+    <!-- <ion-nav-buttons side="right">
+        <button ng-click="vm.setFocus()" ng-hide="vm.hasFocus" class="button button-positive button-clear button-icon icon ion-search animated">
+        </button>
+        <span ng-show="vm.hasFocus" class="animated">
+            <label class="item-input-wrapper animated">
+              <i class="icon ion-search placeholder-icon"></i>
+              <input id="searchPrimary" ng-blur="vm.noFocus()" type="search" placeholder="Search" ng-model="vm.filter">
+            </label>
+            <button ng-click="vm.noFocus()" class="button button-clear animated">
+              Cancel
+            </button>
+          </span>
+        <button ng-click="Main.setOfflineMode(false)" ng-hide="!off.offlineMode || hasFocus " class="button button-positive button-clear button-icon icon ion-toggle animated">
+            Offline
+        </button>
+        <button ng-click="Main.setOfflineMode(true)" ng-hide="off.offlineMode || hasFocus " class="button button-positive button-clear button-icon icon ion-toggle-filled animated">
+            Online
+        </button>
+    </ion-nav-buttons> -->
     <ion-content>
-        <!--  {{placas}} -->
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="vm.refresh()">
+        </ion-refresher>
         <ion-list>
             <!-- item-avatar -->
             <!-- class="item-icon-right item-remove-animate" esta clase animate me molesta a la hora de abrir las opciones -->
             <!--collection-repeat funciona mucho mejor que ng-repeat, y me amntiene bien el filtro-->
             <!--     o tambien puede ser track por placa.placa, y antes de ingresar una verificar que no exista puede ser con un filtro , primero debe ir el filtro y luego el track, parece-->
-            <ion-item collection-repeat="placa in vm.placas | filter:{placa:obj.filter}  | orderBy:'-idinspeccion' track by placa.idinspeccion " type="item-text-wrap">
+            <ion-item collection-repeat="placa in vm.placas | filter:{placa:vm.filter}  | orderBy:'-idinspeccion' track by placa.idinspeccion " type="item-text-wrap">
                 <!-- href="#/tab/placas/{{placa.placa}}" -->
                 <!-- <img ng-src="{{placa.face}}"> -->
                 <!-- <h2>{{placa.idinspeccion}}</h2> -->

@@ -3,7 +3,8 @@
 
     angular
         .module('starter')
-        .constant('moment', moment);
+        .constant('moment', moment)
+        .constant('toastr', toastr);
 
 
 })(moment);
