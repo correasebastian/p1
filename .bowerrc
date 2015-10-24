@@ -1,0 +1,6 @@
+{
+  "directory": "www/lib",
+    "scripts": {
+    "postinstall": "gulp wiredep"
+  }
+}
