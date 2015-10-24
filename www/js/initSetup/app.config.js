@@ -9,14 +9,23 @@
 
     /* @ngInject */
     function config($stateProvider, $urlRouterProvider) {
-       $stateProvider
+        $stateProvider
 
             .state('app', {
-            url: '/app',
-            abstract: true,
-            templateUrl: 'templates/menu.html',
-            controller: 'AppCtrl'
-        })
+                url: '/app',
+                abstract: true,
+                templateUrl: 'templates/menu.html',
+                controller: 'AppCtrl'
+            })
+            .state('app.placas', {
+                url: '/placas',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'js/placas/placas.html',
+                        controller: 'Placas as vm'
+                    }
+                }
+            })
 
         .state('app.search', {
             url: '/search',
@@ -55,6 +64,6 @@
             }
         });
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/playlists');
+        $urlRouterProvider.otherwise('/app/placas');
     }
 })();
