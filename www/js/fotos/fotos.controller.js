@@ -100,19 +100,21 @@
           }
 
           function takePic() {
-              fotoService.takePic()
+              Fotos.takePic()
 
               .then(copyFile)
-              // .then(onCompleteCopyFile)
-              // .then(insertFoto)
-              // .then(onCompleteInsertFoto)
+                  // .then(onCompleteCopyFile)
+                  // .then(insertFoto)
+                  // .then(onCompleteInsertFoto)
 
               function copyFile(mediaURI) {
-                var foto={path: mediaURI };
-                vm.fotos.push(foto);
+                  var foto = {
+                      path: mediaURI
+                  };
+                  vm.fotos.push(foto);
                   // return copyService.copyFile(mediaURI)
-                }
               }
+
 
               function onCompleteCopyFile(FileEntry) {
                   // logger.info('copiado local', FileEntry)          
