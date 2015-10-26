@@ -27,6 +27,16 @@
                 }
             })
 
+        .state('app.fotos', {
+            url: '/fotos/:idinspeccion',
+            views: {
+                'menuContent': {
+                    templateUrl: 'js/Fotos/foto.html',
+                    controller: 'FotosCtrl as vm'
+                }
+            }
+        })
+
         .state('app.search', {
             url: '/search',
             views: {

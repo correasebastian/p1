@@ -14,7 +14,7 @@
         '$ionicPopup',
         // '$ionicScrollDelegate',
         // 'focus',
-        // '$state',
+        '$state',
         // 'titleService',
         // '$ionicModal',
         // 'toastService',
@@ -38,7 +38,7 @@
         $ionicPopup,
         // $ionicScrollDelegate,
         // focus,
-        // $state,
+        $state,
         // titleService,
         // $ionicModal,
         // toastService,
@@ -55,11 +55,12 @@
         var vm = this;
         vm.title = 'Placas';
         vm.placas = [];
-        vm.placa = null;
+        vm.placa ='def456';// null;
         vm.servicios = [];
-        vm.sl = null;
+        vm.sl = 1;// null;
         vm.filter = '';
         vm.hasFocus = false;
+        vm.goFotos=goFotos;
         vm.refresh = refresh;
         vm.setFocus = setFocus;
         vm.noFocus = noFocus;
@@ -106,7 +107,8 @@
         }
 
         function getServicios() {
-            return placasService.getServicios().then(onGetServicios);
+            return placasService.getServicios()
+                .then(onGetServicios);
 
             function onGetServicios(servicios) {
                 vm.servicios = servicios;
@@ -130,7 +132,7 @@
         function placaPopup() {
             var myprompt = $ionicPopup.prompt({
                 title: 'Nueva Placa',
-                templateUrl: 'templates/insertPlaca.html',
+                templateUrl: 'js/placas/insertPlaca.html',
                 scope: $scope,
                 buttons: [{
                     text: 'Cancel',
@@ -166,7 +168,7 @@
 
         function addPlaca(placa) {
             if (placa.length < 4) {
-                console.log('longitud de placa muy corta');
+                logger.error('longitud de placa muy corta');
                 // toastService.showShortBottom('longitud de placa muy corta');
                 return;
             }
@@ -180,13 +182,17 @@
                 // toastService.showShortBottom('placa ya registrada');
                 return;
             }
-            placasService.addPlaca(placa).then(onAddPlaca);
+            placasService.addPlaca(placa, vm.sl).then(onAddPlaca);
 
             function onAddPlaca(placas) {
                 vm.placas = placas;
                 cleanData();
 
             }
+        }
+
+        function goFotos (placa) {
+             $state.go('app.fotos', { idinspeccion: placa.idinspeccion });
         }
 
         //fin del controlador

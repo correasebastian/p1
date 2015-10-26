@@ -54,12 +54,12 @@
                 <!-- <img ng-src="{{placa.face}}"> -->
                 <!-- <h2>{{placa.idinspeccion}}</h2> -->
                 <h2>{{placa.placa}}</h2>
-                <p>{{placa.servicio}}</p>
+                <p>{{placa.servicio}}  unix:  {{placa.unix}}  servicio : {{placa.srv}}</p>
                 <span class="item-note">
         {{placa.placa}}
         </span>
                 <!-- <i class="icon ion-chevron-right icon-accessory"></i> -->
-                <ion-option-button class="button-assertive icon ion-camera" on-touch="goFotos(placa)"></ion-option-button>
+                <ion-option-button class="button-assertive icon ion-camera" on-touch="vm.goFotos(placa)"></ion-option-button>
                 <!-- no es necesario por ahora -->
                 <!-- <ion-option-button class="button-calm icon ion-videocamera" on-touch="goVideo(placa)" ng-show="setOpciones(placa.revEst)"></ion-option-button> -->
                 <ion-option-button class="button-light icon ion-document-text" on-touch="goInspeccion(placa)" ng-show="setOpciones(placa.revEst)"></ion-option-button>

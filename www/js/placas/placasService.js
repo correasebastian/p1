@@ -5,10 +5,10 @@
         .module('app.placas')
         .factory('placasService', placasService);
 
-    placasService.$inject = ['$q', 'exception'];
+    placasService.$inject = ['$q', 'exception', 'momentService', 'promise'];
 
     /* @ngInject */
-    function placasService($q, exception) {
+    function placasService($q, exception, momentService, promise) {
         var i = 1;
         var arrayPlacas = [{
             idinspeccion: i,
@@ -40,13 +40,26 @@
             }
         }
 
-        function addPlaca(placa) {
+        function addPlaca(placa, srv) {
             var obj = {
                 placa: placa,
-                idinspeccion: i++
+                idinspeccion: i++,
+                srv: srv,
+                unix: momentService.getUnixSeconds()
             };
-            arrayPlacas.push(obj);
-            return $q.when(arrayPlacas);
+
+            return promise.emulate('ingresando placa', obj, 200, false)
+                .then(onAddCompleted)
+                .catch(exception.catcher('no se ingreso la placa'));
+
+            function onAddCompleted(res) {
+
+                //que es mejor si manejar un array aca en el servicio y hacer un push y habilitar la cache? o devolver solo el valor y volver a llamar getpplacas??
+                var obj = res;
+                arrayPlacas.push(obj);
+                return arrayPlacas;
+            }
+            // return $q.when(arrayPlacas);
         }
 
         function reject(bool) {

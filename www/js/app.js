@@ -11,10 +11,9 @@
         'ngCordova', 'LocalStorageModule',
 
         //common
-        'blocks.exception','blocks.logger',
-
+        'blocks.exception', 'blocks.logger', 'blocks.moment', 'blocks.sqlite', 'blocks.promise',
         //app modules
-        'app.placas'
+        'app.placas', 'app.fotos'
     ]);
 
 
