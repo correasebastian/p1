@@ -55,14 +55,15 @@
         var vm = this;
         vm.title = 'Placas';
         vm.placas = [];
-        vm.placa ='def456';// null;
+        vm.placa = 'def456'; // null;
         vm.servicios = [];
-        vm.sl = 1;// null;
+        vm.sl = 1; // null;
         vm.filter = '';
         vm.hasFocus = false;
-        vm.goFotos=goFotos;
+        vm.goFotos = goFotos;
         vm.refresh = refresh;
         vm.setFocus = setFocus;
+        vm.setOpciones = setOpciones;
         vm.noFocus = noFocus;
         vm.placaPopup = placaPopup;
 
@@ -191,8 +192,18 @@
             }
         }
 
-        function goFotos (placa) {
-             $state.go('app.fotos', { idinspeccion: placa.idinspeccion });
+        function goFotos(placa) {
+            $state.go('app.fotos', {
+                idinspeccion: placa.idinspeccion
+            });
+        }
+
+        function setOpciones(revEst) {
+            // console.log(revEst);
+            /* if (!revEst) {
+               return false;
+             }*/
+            return true;
         }
 
         //fin del controlador

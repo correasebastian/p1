@@ -5,14 +5,16 @@
         .module('app.fotos')
         .factory('Fotos', Fotos);
 
-    Fotos.$inject = ['promise', 'exception', 'logger', 'moment'];
+    Fotos.$inject = ['promise', 'exception', 'logger', 'moment', '$cordovaCamera'];
 
     /* @ngInject */
-    function Fotos(promise, exception, logger, moment) {
+    function Fotos(promise, exception, logger, moment, $cordovaCamera) {
 
         var arrayFotos = [];
         var service = {
-            getFotos: getFotos
+            getFotos: getFotos,
+            getNames: getNames,
+            takePic: takePic
         };
         return service;
 
@@ -29,7 +31,7 @@
                 "uuid": "testuuid",
                 "deleted": 0,
                 "fecha": "2015-10-26T12:09:15",
-                "idtipo": 639,
+                "idtipo": 494,
                 "placa": "PFT967",
                 "idajustev": 1199364,
                 "onUpload": 0,
@@ -46,6 +48,73 @@
                 arrayFotos.push(obj);
                 return arrayFotos;
             }
+
+
         }
+
+
+
+        function getNames() {
+            /* var query = store.get('consulta').cGetNameFotosByRol; //consultaService.consultas.cPlacas;
+             var binding = [store.get('dataInit').idrolsura];
+             return Sqlite.execute(query, binding)*/
+            var msg = 'obteniendo names';
+            var errMsg = 'error ' + msg;
+            var array = [{
+                "idTipoFoto": 494,
+                "NombreFoto": "Placa",
+                "orden": 1,
+                "cantidad": 1
+            }, {
+                "idTipoFoto": 625,
+                "NombreFoto": "Frente Licencia Transito",
+                "orden": 10,
+                "cantidad": 1
+            }, {
+                "idTipoFoto": 626,
+                "NombreFoto": "Dorso Licencia Transito",
+                "orden": 20,
+                "cantidad": 1
+            }];
+            return promise.emulate(msg, array, 200, false)
+                .then(getNamesComplete)
+                .catch(exception.catcher(errMsg));
+
+            function getNamesComplete(data) {
+                // var array = Sqlite.rtnArray(data);
+                return data;
+            }
+
+        }
+
+
+        function takePic() {
+            var msg = 'tomando foto';
+            var errMsg = 'error ' + msg;
+            var options = {
+                quality: 40,
+                //50,
+                destinationType: Camera.DestinationType.FILE_URI,
+                sourceType: Camera.PictureSourceType.CAMERA,
+                // allowEdit: true,
+                encodingType: Camera.EncodingType.JPEG,
+                targetWidth: 1000,
+                //importante con 100 se veia horrible
+                targetHeight: 1000,
+                // si le pongo true me crea problemas
+                saveToPhotoAlbum: false
+            };
+            return $cordovaCamera.getPicture(options).then(onCompleteTakePic)
+                .catch(exception.catcher(errMsg));
+
+            function onCompleteTakePic(imageURI) {
+                logger.success(msg)
+                return imageURI;
+            }
+
+        }
+
+
+        ////end controller
     }
 })();

@@ -1,23 +1,6 @@
 <ion-view view-title="foto">
 <ion-nav-title>{{tittle}}</ion-nav-title>
-      <!-- <ion-nav-buttons side="right">
-         
-     
-		    <button ng-click="setOfflineMode(true)" ng-show="!off.offlineMode " class="button button-positive button-clear button-icon icon ion-toggle animated" >{{off.offlineMode}}</button>
-		       <button ng-click="setOfflineMode(false)" ng-show="off.offlineMode  " class="button button-positive button-clear button-icon icon ion-toggle-filled animated" >
-		        {{off.offlineMode}}
-		     </button>
- 
-        </ion-nav-buttons>  -->
-
-<!-- <div class="float-button fbAdd">
-  <span class="height-fix">
-    <a on-touch="addPlaca()"  class="button content button-icon ">
-    
-      <i class="ion-plus-round my-icon"> </i>
-    </a>
-  </span>
-</div> -->
+      
 
 <div class="float-button fbVideoCompress" ng-show="imgUnsync.length>0 && !off.offlineMode && oss.isOnline">
   <span class="height-fix">
@@ -30,7 +13,7 @@
 <div class="float-button fbCamera">
   <span class="height-fix">
     <!-- <a on-touch="getPicFile()"  class="button content button-icon "> -->
-	<a on-touch="openModal()"  class="button content button-icon ">
+	<a on-touch="vm.openModal()"  class="button content button-icon ">
     <!-- ui-sref="add-trip" -->
       <i class="ion-camera my-icon"> </i>
     </a>

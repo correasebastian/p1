@@ -1,0 +1,128 @@
+{
+    "tipofotos": [{
+        "idTipoFoto": 494,
+        "NombreFoto": "Placa",
+        "orden": 1,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 625,
+        "NombreFoto": "Frente Licencia Transito",
+        "orden": 10,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 626,
+        "NombreFoto": "Dorso Licencia Transito",
+        "orden": 20,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 496,
+        "NombreFoto": "Delantera Izquierda",
+        "orden": 30,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 495,
+        "NombreFoto": "Delantera Derecha",
+        "orden": 40,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 497,
+        "NombreFoto": "Trasera Derecha",
+        "orden": 50,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 498,
+        "NombreFoto": "Trasera Izquierda",
+        "orden": 60,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 1268,
+        "NombreFoto": "Placa trasera",
+        "orden": 70,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 628,
+        "NombreFoto": "Numero de Chasis",
+        "orden": 80,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 627,
+        "NombreFoto": "Numero de Motor",
+        "orden": 90,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 629,
+        "NombreFoto": "Plaqueta Serial",
+        "orden": 100,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 634,
+        "NombreFoto": "Serial en Vidrios",
+        "orden": 110,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 721,
+        "NombreFoto": "Stiker De Serie",
+        "orden": 112,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 630,
+        "NombreFoto": "Plaqueta de Seguridad",
+        "orden": 114,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 633,
+        "NombreFoto": "Consecutivo Producción",
+        "orden": 116,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 1275,
+        "NombreFoto": "Millare",
+        "orden": 120,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 502,
+        "NombreFoto": "Kilometraje",
+        "orden": 130,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 1269,
+        "NombreFoto": "Labrado llanta delantera izquierda",
+        "orden": 140,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 1270,
+        "NombreFoto": "Labrado llanta delantera derecha",
+        "orden": 150,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 1271,
+        "NombreFoto": "Labrado llanta trasera derecha",
+        "orden": 160,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 1272,
+        "NombreFoto": "Labrado llanta trasera izquierda",
+        "orden": 170,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 1276,
+        "NombreFoto": "Rechazo",
+        "orden": 180,
+        "cantidad": 0
+    }, {
+        "idTipoFoto": 1273,
+        "NombreFoto": "Formato de improntas",
+        "orden": 190,
+        "cantidad": 1
+    }, {
+        "idTipoFoto": 1277,
+        "NombreFoto": "Hallazgo",
+        "orden": 195,
+        "cantidad": 0
+    }, {
+        "idTipoFoto": 639,
+        "NombreFoto": "Foto Adicional",
+        "orden": 200,
+        "cantidad": 0
+    }]
+}

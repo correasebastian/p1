@@ -1,7 +1,7 @@
 <ion-view class="fancy-select-items modal">
   <ion-header-bar class="bar-positive">
 
-    <button ng-click="closeModal()" class="button button-positive button-icon ion-android-arrow-back"></button>
+    <button ng-click="vm.closeModal()" class="button button-positive button-icon ion-android-arrow-back"></button>
     <h1 class="title">Fotos Pendientes</h1>
   </ion-header-bar>
   <ion-content>
@@ -9,11 +9,11 @@
          
           <!-- Single select -->
           <label
-                 ng-repeat="opcion in fotosFalt"
+                 ng-repeat="opcion in vm.fotosFalt"
                  
                  class="item item-text-wrap "
                  ng-class="{positive:opcion.value===item.sl.value}"
-                 on-tap='setIdTipoFoto(opcion)'>
+                 on-tap='vm.setIdTipoFoto(opcion)'>
        
             {{opcion.NombreFoto}}
           </label>
