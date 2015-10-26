@@ -91,20 +91,26 @@
         function takePic() {
             var msg = 'tomando foto';
             var errMsg = 'error ' + msg;
-            var options = {
-                quality: 40,
-                //50,
-                destinationType: Camera.DestinationType.FILE_URI,
-                sourceType: Camera.PictureSourceType.CAMERA,
-                // allowEdit: true,
-                encodingType: Camera.EncodingType.JPEG,
-                targetWidth: 1000,
-                //importante con 100 se veia horrible
-                targetHeight: 1000,
-                // si le pongo true me crea problemas
-                saveToPhotoAlbum: false
-            };
-            return $cordovaCamera.getPicture(options).then(onCompleteTakePic)
+            var imageURI='img/sunset.jpg';
+            /*     var options = {
+                     quality: 40,
+                     //50,
+                     destinationType: Camera.DestinationType.FILE_URI,
+                     sourceType: Camera.PictureSourceType.CAMERA,
+                     // allowEdit: true,
+                     encodingType: Camera.EncodingType.JPEG,
+                     targetWidth: 1000,
+                     //importante con 100 se veia horrible
+                     targetHeight: 1000,
+                     // si le pongo true me crea problemas
+                     saveToPhotoAlbum: false
+                 };*/
+            /*  return $cordovaCamera.getPicture(options)
+                  .then(onCompleteTakePic)
+                  .catch(exception.catcher(errMsg));*/
+
+            return promise.emulate(msg, imageURI, 200, false)
+                .then(onCompleteTakePic)
                 .catch(exception.catcher(errMsg));
 
             function onCompleteTakePic(imageURI) {
