@@ -31,7 +31,7 @@
             url: '/fotos/:idinspeccion',
             views: {
                 'menuContent': {
-                    templateUrl: 'js/Fotos/foto.html',
+                    templateUrl: 'js/fotos/foto.html',
                     controller: 'FotosCtrl as vm'
                 }
             }
