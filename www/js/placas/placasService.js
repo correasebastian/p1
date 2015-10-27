@@ -12,12 +12,10 @@
         var i = 1;
         var arrayPlacas = [{
             idinspeccion: i,
-            placa: 'abc111'
+            placa: 'abc111',
+            servicio: 841
         }];
-        var arrayServicios = [{
-            "label": 'pesados',
-            value: 1
-        }];
+
         var service = {
             getPlacas: getPlacas,
             getServicios: getServicios,
@@ -40,12 +38,17 @@
             }
         }
 
-        function addPlaca(placa, srv) {
+        function addPlaca(placa, servicio) {
+            if (!servicio.revEst){
+                servicio.revEst=null;
+            }
             var obj = {
                 placa: placa,
-                idinspeccion: i++,
-                srv: srv,
-                unix: momentService.getUnixSeconds()
+                idinspeccion: momentService.getUnixSeconds(),
+                idsrv: servicio.value,
+                unix: momentService.getUnixSeconds(),
+                revEst:servicio.revEst,
+               /*solo visual*/ servicio: servicio.label
             };
 
             return promise.emulate('ingresando placa', obj, 200, false)
@@ -71,6 +74,14 @@
         }
 
         function getServicios() {
+            var arrayServicios = [{
+                "value": 1217,
+                "label": "Asegurabilidad En Linea"
+            }, {
+                "value": 841,
+                "label": "Asegurabilidad liviano -",
+                "revEst": 829
+            }];
             return $q.when(arrayServicios);
         }
     }

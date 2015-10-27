@@ -36,6 +36,15 @@
                 }
             }
         })
+           .state('app.calificacion', {
+            url: '/calificacion/:idinspeccion/:idsubproceso',
+            views: {
+                'menuContent': {
+                    templateUrl: 'js/calificacion/calificacion.html',
+                    controller: 'CalificacionCtrl as vm'
+                }
+            }
+        })
 
         .state('app.search', {
             url: '/search',

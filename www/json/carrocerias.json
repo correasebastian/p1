@@ -1,0 +1,18 @@
+{
+    "carrocerias": [{
+        "value": 85,
+        "label": "Coupe"
+    }, {
+        "value": 94,
+        "label": "Hatchback"
+    }, {
+        "value": 105,
+        "label": "Sedan"
+    }, {
+        "value": 107,
+        "label": "Station Wagon"
+    }, {
+        "value": 733,
+        "label": "Convertible"
+    }]
+}

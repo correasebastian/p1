@@ -1,0 +1,12 @@
+{
+    "clases": [{
+        "value": 378,
+        "label": "Automovil"
+    }, {
+        "value": 382,
+        "label": "Camioneta"
+    }, {
+        "value": 383,
+        "label": "Campero"
+    }]
+}

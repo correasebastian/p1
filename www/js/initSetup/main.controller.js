@@ -12,6 +12,8 @@
         var vm = this;
         vm.title = 'MainCtrl';
         vm.setOfflineMode=setOfflineMode;
+        vm.offlineMode=false;
+        vm.hide=false;
 
         activate();
 
@@ -22,6 +24,7 @@
 
         function setOfflineMode (bool) {
         	console.log('setofflinemode', bool);
+            vm.offlineMode=bool;
         }
     }
 })();

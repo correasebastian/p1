@@ -20,44 +20,60 @@
         };
         return service;
 
-        function emulate(msg, data, delay, error) {
+        function emulate(msg, data, delay, error, notify) {
+            delay = (delay) ? delay : 1000;
+            var intervalms = delay / 10;
+            var i=0;
 
-            var deferred = $q.defer();
+            var q = $q.defer();
+
+            if (notify) {
+
+                var interval = $interval(
+                    function() {
+                        q.notify(i++);
+                    }, intervalms
+
+                );
+
+            }
 
             $timeout(function() {
                 logger.log(msg, delay);
+                $interval.cancel(interval);
+
                 if (error) {
-                    deferred.reject('error on : ' + msg);
+                    q.reject('error on : ' + msg);
 
                 } else {
-                    deferred.resolve(data);
+                    q.resolve(data);
                 }
 
             }, delay);
 
-            return deferred.promise;
+            return q.promise;
 
         }
 
-           function existsConsulta() {
-             /*  var deferred = $q.defer();
-               var n = 1;
-               if (store.get('consulta') && store.get('dataInit') && Sqlite.db) {
-                   deferred.resolve(true);
-               } else {
-                   var interval = $interval(
-                       function() {
-                           n += 1;
-                           // logger.info(n);
-                           if (store.get('consulta') && Sqlite.db) {
-                               $interval.cancel(interval);
-                               deferred.resolve(true);
-                           }
-                       }, 500);
+        function existsConsulta() {
+            /*  var deferred = $q.defer();
+              var n = 1;
+              if (store.get('consulta') && store.get('dataInit') && Sqlite.db) {
+                  deferred.resolve(true);
+              } else {
+                  var interval = $interval(
+                      function() {
+                          n += 1;
+                          // logger.info(n);
+                          if (store.get('consulta') && Sqlite.db) {
+                              $interval.cancel(interval);
+                              deferred.resolve(true);
+                          }
+                      }, 500);
 
-               }
+              }
 
-               return deferred.promise;*/
-           }
+              return deferred.promise;*/
+        }
     }
 })();

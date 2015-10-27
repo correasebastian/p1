@@ -1,3 +1,4 @@
+var s;
 (function() {
     'use strict';
 
@@ -52,14 +53,18 @@
         // $timeout
     ) {
 
+        s = $scope;
+
         var vm = this;
         vm.title = 'Placas';
+        vm.changeService = changeService;
         vm.placas = [];
         vm.placa = 'def456'; // null;
         vm.servicios = [];
         vm.sl = 1; // null;
         vm.filter = '';
         vm.hasFocus = false;
+        vm.goInspeccion = goInspeccion;
         vm.goFotos = goFotos;
         vm.refresh = refresh;
         vm.setFocus = setFocus;
@@ -94,6 +99,10 @@
                 // Stop the ion-refresher from spinning
                 $scope.$broadcast('scroll.refreshComplete');
             }
+        }
+
+        function changeService (servicio) {
+            console.log(servicio);
         }
 
         function getPlacas() {
@@ -144,8 +153,8 @@
                     text: '<b>Save</b>',
                     type: 'button-positive',
                     onTap: function(e) {
-                        if (vm.placa === null) {
-                            //|| vm.sl === null
+                        if (vm.placa === null || vm.sl === null) {
+                            
                             e.preventDefault();
                         } else {
                             return vm.placa;
@@ -155,7 +164,7 @@
             });
             myprompt.then(function(placa) {
                 if (placa !== null && placa !== undefined) {
-                    addPlaca(placa);
+                    addPlaca(placa, vm.sl);
                 }
 
             }); // TODO: organizar el focus en el input del popup
@@ -195,6 +204,13 @@
         function goFotos(placa) {
             $state.go('app.fotos', {
                 idinspeccion: placa.idinspeccion
+            });
+        }
+
+        function goInspeccion(placa) {
+            $state.go('app.calificacion', {
+                idinspeccion: placa.idinspeccion,
+                idsubproceso: placa.revEst
             });
         }
 

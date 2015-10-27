@@ -1,0 +1,15 @@
+<ion-view class="fancy-select-items modal">
+    <ion-header-bar class="bar-positive">
+        <button ng-click="vm.hideItems()" class="button button-positive button-icon ion-android-arrow-back"></button>
+        <h1 class="title">{{vm.item.nombre}}</h1>
+        <!--   <button ng-click="validate()" class="button button-positive button-icon ion-checkmark"></button> -->
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <!-- Single select -->
+            <label ng-repeat="opcion in vm.item.controlJson" class="item item-text-wrap " ng-class="{positive:opcion.value===vm.item.sl.value}" on-tap='vm.validateSingle(opcion)'>
+                {{opcion.label}}
+            </label>
+        </div>
+    </ion-content>
+</ion-view>

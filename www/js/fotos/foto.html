@@ -1,54 +1,59 @@
 <ion-view view-title="foto">
-<ion-nav-title>{{tittle}}</ion-nav-title>
-      
-
-<div class="float-button fbVideoCompress" ng-show="imgUnsync.length>0 && !off.offlineMode && oss.isOnline">
-  <span class="height-fix">
+    <ion-nav-title>{{tittle}}</ion-nav-title>
+    <div class="float-button fbVideoCompress" ng-show="imgUnsync.length>0 && !off.offlineMode && oss.isOnline">
+        <span class="height-fix">
     <a on-touch="syncImgUnsync()"  class="button content button-icon ">
     <!-- ui-sref="add-trip" -->
       <i class="ion-android-upload my-icon"> </i>
     </a>
   </span>
-</div>
-<div class="float-button fbCamera">
-  <span class="height-fix">
+    </div>
+    <div class="float-button fbCamera">
+        <span class="height-fix">
     <!-- <a on-touch="getPicFile()"  class="button content button-icon "> -->
 	<a on-touch="vm.openModal()"  class="button content button-icon ">
     <!-- ui-sref="add-trip" -->
       <i class="ion-camera my-icon"> </i>
     </a>
   </span>
-</div>
-  <ion-content delegate-handle="mainScroll">
-  
-    	<!-- <div class="list card mt" ng-repeat="foto in vm.fotos | unique" > -->
-      <div class="list card mt" ng-repeat="foto in vm.fotos " >
+    </div>
+    <ion-content delegate-handle="mainScroll">
+        <div class="list">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="text" ng-model="vm.intervalExample">
+                </label>
+                <button class="button button-small">
+                    Submit
+                </button>
+            </div>
+        </div>
+        <!-- <div class="list card mt" ng-repeat="foto in vm.fotos | unique" > -->
+        <div class="list card mt" ng-repeat="foto in vm.fotos ">
+            <div class="item  item-select">
+                <select ng-model="foto.idtipo" ng-options="nombreImage.idTipoFoto as nombreImage.NombreFoto  for nombreImage in names" class="pull-left" ng-change="setname(foto.idtipo, foto)">
+                </select>
+            </div>
+            <div class="item item-image">
+                <img ng-src={{foto.path}}>
+            </div>
+            <div class="item item-icon assertive">
+                <button ng-show="!foto.sync && !foto.onUpload " ng-disabled="!oss.isOnline" on-touch="tryUpload(foto)" class="button button-icon  ">
+                    <i class="icon ion-refresh red"></i>
+                </button>
+                <i ng-show="foto.sync" class="icon ion-checkmark-round green"></i>
+                <ion-spinner ng-show="foto.onUpload"></ion-spinner><span ng-show="foto.onUpload">{{foto.percentage}}</span>
+                <div class="item item-input-inset">
+                    <label class="item-input-wrapper">
+                        <input type="text" ng-model="foto.intervalExample">
+                    </label>
+                    <button class="button button-small" ng-click="vm.mockIntervalExample(foto)">
+                        Submit
+                    </button>
+                    <progress max="100" value="{{foto.intervalExample*10}}"> </progress>
+                </div>
 
-	
-	  	  <div class="item  item-select">
-		   
-		   <select ng-model="foto.idtipo" ng-options="nombreImage.idTipoFoto as nombreImage.NombreFoto  for nombreImage in names" 	class="pull-left" 
-    		ng-change="setname(foto.idtipo, foto)">
-        </select> 
-		  </div>
-
-		  <div class="item item-image">
-		    <img ng-src={{foto.path}}>
-		  </div>
-
-		  <div class="item item-icon assertive" >
-			  <button ng-show="!foto.sync && !foto.onUpload " ng-disabled="!oss.isOnline" on-touch="tryUpload(foto)" class="button button-icon  ">
-			    <i  class="icon ion-refresh red"></i>
-			  </button>
-
-		    <i  ng-show="foto.sync" class="icon ion-checkmark-round green"></i>
-		    <ion-spinner ng-show="foto.onUpload"></ion-spinner><span ng-show="foto.onUpload">{{foto.percentage}}</span>
-	      </div>
- 
-		    
-		  
-
-	</div>
-
-  </ion-content>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

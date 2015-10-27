@@ -10,7 +10,8 @@
     <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
-        <button ng-click="vm.setFocus()" ng-hide="vm.hasFocus" class="button button-positive button-clear button-icon icon ion-search animated">
+        <button ng-click="vm.setFocus()"
+         ng-hide="vm.hasFocus" class="button button-positive button-clear button-icon icon ion-search animated">
         </button>
         <span ng-show="vm.hasFocus" class="animated">
             <label class="item-input-wrapper animated">
@@ -61,7 +62,7 @@
                 <!-- <i class="icon ion-chevron-right icon-accessory"></i> -->
                 <ion-option-button class="button-assertive icon ion-camera" on-touch="vm.goFotos(placa)"></ion-option-button>
                
-                <ion-option-button class="button-light icon ion-document-text" on-touch="goInspeccion(placa)" ng-show="vm.setOpciones(placa.revEst)"></ion-option-button>
+                <ion-option-button class="button-light icon ion-document-text" on-touch="vm.goInspeccion(placa)" ng-show="vm.setOpciones(placa.revEst)"></ion-option-button>
                 <ion-option-button class="button-balanced icon ion-clipboard" on-touch="goAccesorios(placa)" ng-show="vm.setOpciones(placa.revEst)"></ion-option-button>
                 <ion-option-button class="button-energized icon ion-android-car" on-touch="goCodFas(placa)" ng-show="vm.setOpciones(placa.revEst)"></ion-option-button>
             </ion-item>

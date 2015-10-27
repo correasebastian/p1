@@ -7,11 +7,11 @@
                 <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
                 </button>
             </ion-nav-buttons>
-            <ion-nav-buttons side="right">
-                <button ng-click="Main.setOfflineMode(false)" ng-show="off.offlineMode  " class="button button-positive button-clear button-icon icon ion-toggle animated">
+            <ion-nav-buttons side="right" >
+                <button ng-click="Main.setOfflineMode(false)" ng-show="Main.offlineMode" ng-hide="Main.hide" class="button button-positive button-clear button-icon icon ion-toggle animated">
                     Offline
                 </button>
-                <button ng-click="Main.setOfflineMode(true)" ng-show="!off.offlineMode " class="button button-positive button-clear button-icon icon ion-toggle-filled animated">
+                <button ng-click="Main.setOfflineMode(true)" ng-show="!Main.offlineMode " ng-hide="Main.hide" class="button button-positive button-clear button-icon icon ion-toggle-filled animated">
                     Online
                 </button>
             </ion-nav-buttons>

@@ -5,9 +5,9 @@
           .module('app.fotos')
           .controller('FotosCtrl', FotosCtrl);
 
-      FotosCtrl.$inject = ['$stateParams', 'Fotos', '$q', 'logger', '$scope', '$ionicModal', 'filterService'];
+      FotosCtrl.$inject = ['$stateParams', 'Fotos', '$q', 'logger', '$scope', '$ionicModal', 'filterService', 'promise'];
 
-      function FotosCtrl($stateParams, Fotos, $q, logger, $scope, $ionicModal, filterService) {
+      function FotosCtrl($stateParams, Fotos, $q, logger, $scope, $ionicModal, filterService, promise) {
           // console.log(zumeroService, 'zumero service on fotos')
           /*jshint validthis: true */
           var vm = this;
@@ -15,8 +15,10 @@
           vm.modal = null;
           vm.fotosFalt = [];
           vm.names = [];
-          vm.idinspeccion = $stateParams.id;
+          vm.idinspeccion = parseInt($stateParams.idinspeccion);
+          vm.intervalExample = 0;
           vm.closeModal = closeModal;
+          vm.mockIntervalExample = mockIntervalExample;
           vm.openModal = openModal;
           vm.setIdTipoFoto = setIdTipoFoto;
 
@@ -35,9 +37,22 @@
               function onActivated(res) {
 
                   logger.info('fotos activado', res);
+
+
+
               }
 
 
+          }
+
+          function mockIntervalExample(foto) {
+              return promise.emulate('test', {}, 10000, false /*reject*/ , true /*notify*/ )
+                  .then(null, null, onEmulatedProgress);
+
+              function onEmulatedProgress(progress) {
+                  foto.intervalExample = progress;
+                  logger.info(progress);
+              }
           }
 
           function setModal() {

@@ -12,23 +12,13 @@
 	  <label class="item-input-wrapper">
 	  <span><!-- servicio --> </span>
 	   
-	    <select class="ml15" ng-model="vm.sl"  ng-options="service.value as service.label for service in vm.servicios" 
+	    <select class="ml15" ng-model="vm.sl"  ng-options="service.label for service in vm.servicios" ng-change="vm.changeService(vm.sl)"
 	    ng-init="vm.onInitSrv();" >       
   	</select>
 	  </label>
 	 
 	</div>
 
-<!-- <div class="list">
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Placa</span>
-    <input type="text" placeholder="placa" ng-model="data.placa">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Servicio</span>
-     <select class="ml15" ng-model="data.sl"  ng-options="service.value as service.label for service in services" 
-	    ng-init="onInitSrv();" >       
-  	</select>
-  </label> -->
+
  
 </div>

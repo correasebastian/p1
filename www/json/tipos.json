@@ -1,0 +1,9 @@
+{
+    "tipos": [{
+        "value": 829,
+        "label": "liviano"
+    }, {
+        "value": 844,
+        "label": "pesado"
+    }]
+}

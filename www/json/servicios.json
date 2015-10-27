@@ -1,0 +1,85 @@
+(Sin nombre de columna) {
+    "servicios": [{
+        "value": 1217,
+        "label": "Asegurabilidad En Linea"
+    }, {
+        "value": 841,
+        "label": "Asegurabilidad liviano -",
+        "revEst": 829
+    }, {
+        "value": 1286,
+        "label": "Asegurabilidad Liviano Cinel",
+        "revEst": 829
+    }, {
+        "value": 874,
+        "label": "Asegurabilidad pesado",
+        "revEst": 844
+    }, {
+        "value": 1291,
+        "label": "Asegurabilidad Pesado Cinel"
+    }, {
+        "value": 1089,
+        "label": "Avaluo basico liviano",
+        "revEst": 829
+    }, {
+        "value": 1078,
+        "label": "Avaluo comercial  pesado",
+        "revEst": 844
+    }, {
+        "value": 1077,
+        "label": "Avaluo comercial liviano",
+        "revEst": 829
+    }, {
+        "value": 1287,
+        "label": "Avaluo comercial liviano Cinel",
+        "revEst": 829
+    }, {
+        "value": 1095,
+        "label": "Avaluo credito liviano",
+        "revEst": 829
+    }, {
+        "value": 1080,
+        "label": "Avaluo financiero liviano",
+        "revEst": 829
+    }, {
+        "value": 1079,
+        "label": "Avaluo financiero pesado",
+        "revEst": 844
+    }, {
+        "value": 836,
+        "label": "Avaluo pleno Liviano-",
+        "revEst": 829
+    }, {
+        "value": 877,
+        "label": "Avaluo pleno pesado",
+        "revEst": 844
+    }, {
+        "value": 897,
+        "label": "Estudio por imagenes basico"
+    }, {
+        "value": 484,
+        "label": "Estudio Técnico Basico"
+    }, {
+        "value": 1073,
+        "label": "Estudio tecnico pleno"
+    }, {
+        "value": 1288,
+        "label": "Estudio Tecnico pleno Cinel"
+    }, {
+        "value": 813,
+        "label": "Reinspeccion liviano",
+        "revEst": 829
+    }, {
+        "value": 1101,
+        "label": "Reinspeción Pesado",
+        "revEst": 844
+    }, {
+        "value": 829,
+        "label": "Revision estructural livianos-",
+        "revEst": 829
+    }, {
+        "value": 844,
+        "label": "Revision estructural Pesados",
+        "revEst": 844
+    }]
+}
